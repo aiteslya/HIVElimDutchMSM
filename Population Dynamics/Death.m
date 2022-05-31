@@ -1,7 +1,7 @@
 function [Pop_Id,Pop_Age,Pop_Steady,Pop_history_steady,Rels_steady,Steady_dur,Pop_Casual,Pop_history_casual,Rels_casual,Casual_dur,Pop_desire]=Death(Pop_Id,Pop_Age,Pop_Steady,Pop_history_steady,DeathRates,Rels_steady,Steady_dur,Pop_Casual,Pop_history_casual,Rels_casual,Casual_dur,Pop_desire,tcounter)
     % retiring individuals from the population if the yearly mark has been
     % crossed and they have turned 83 or due to the background mortality
-
+    ind_died=[];
     % death due to the background mortality
     ind=find(Pop_Age>0);
     if numel(ind)>0
@@ -15,6 +15,7 @@ function [Pop_Id,Pop_Age,Pop_Steady,Pop_history_steady,Rels_steady,Steady_dur,Po
             r1=rand;
             if r1<mu % individual dies
                 id=Pop_Id(index);
+                ind_died=[ind_died, id];
                 Pop_Id(index)=0;% remove the record from Id record
                 Pop_Age(index)=0; % remove the record from age record
                 % clean up steady relationships for the diseased and for their
@@ -69,6 +70,7 @@ function [Pop_Id,Pop_Age,Pop_Steady,Pop_history_steady,Rels_steady,Steady_dur,Po
             for counter=1:1:numel(ind)
                 index=ind(counter);
                 id=Pop_Id(index);
+                ind_died=[ind_died, id];
                 Pop_Id(index)=0;% remove the record from Id record
                 Pop_Age(index)=0; % remove the record from age record
                 % clean up steady relationships for the diseased and for their
@@ -116,4 +118,8 @@ function [Pop_Id,Pop_Age,Pop_Steady,Pop_history_steady,Rels_steady,Steady_dur,Po
             end
         end
     end
+%     if numel(ind_died)>0
+%         disp('Died');
+%         ind_died
+%     end
 end

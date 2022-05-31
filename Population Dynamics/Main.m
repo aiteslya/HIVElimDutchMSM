@@ -542,6 +542,7 @@ end
 xticklabels(xlabels);
 xlabel('Time, years','interpreter','latex');
 ylabel('Number of people','Interpreter','latex');
+title('Current steady partners','interpreter','latex');
 legend('Single','One steady partner','Two steady partners');
 set(gca,'FontSize',25)
 figc=figc+1;
@@ -557,7 +558,7 @@ for ind=ind_alive
     counter=counter+1;
 end
 histogram(Num_steady_12,'normalization','probability');
-xlabel(['Number of steady partners within the last',num2str(hist_dur),' months of the simulation'],'interpreter','latex');
+xlabel({'Number of steady partners within';['the last ',num2str(hist_dur/30),' months of the simulation']},'interpreter','latex');
 ylabel('Probability','interpreter','latex');
 set(gca,'FontSize',25);
 figc=figc+1;
@@ -567,7 +568,7 @@ figc=figc+1;
 figure(figc);
 histogram(Casual_dur,'normalization','probability');
 xline(mean(Casual_dur),'r--','LineWidth',4);
-xlabel('Duration of steady relationships, days','interpreter','latex');
+xlabel('Duration of casual relationships, days','interpreter','latex');
 ylabel('Probability','interpreter','latex');
 set(gca,'FontSize',25)
 figc=figc+1;
@@ -580,7 +581,7 @@ end
 xticks(0:10*365:(T*365+1));
 xlabels={};
 counter0=1;
-for counter=0:10:T
+for counter=0:1:T
     str=num2str(counter);
     xlabels{counter0}=str;
     counter0=counter0+1;
@@ -588,6 +589,7 @@ end
 xticklabels(xlabels);
 xlabel('Time, years','interpreter','latex');
 ylabel('Number of people','Interpreter','latex');
+title('Current casual partners','interpreter','latex');
 legend('0','1','2','3','4','5','>5');
 set(gca,'FontSize',25)
 figc=figc+1;
@@ -600,7 +602,7 @@ for ind=ind_alive
     counter=counter+1;
 end
 histogram(Num_casual_12,'normalization','probability');
-xlabel(['Number of casual partners within the last',num2str(hist_dur),' months of the simulation'],'interpreter','latex');
+xlabel({'Number of casual partners within';['the last ',num2str(hist_dur/30),' months of the simulation']},'interpreter','latex');
 ylabel('Probability','interpreter','latex');
 set(gca,'FontSize',25);
 figc=figc+1;

@@ -10,7 +10,7 @@ if num_born>0
     new_ids=IdCounter:1:(IdCounter+num_born-1);
     Pop_Id(ind)=new_ids;
     Pop_Steady(1:2,ind)=0;
-    Pop_Steady(:,ind)=0;
+    Pop_casual(:,ind)=0;
     Pop_steady_history(:,ind)=-1;
     Pop_casual_history(:,ind)=-1;
     IdCounter=IdCounter+num_born;

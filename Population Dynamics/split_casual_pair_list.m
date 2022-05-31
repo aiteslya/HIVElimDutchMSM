@@ -14,8 +14,8 @@ function [Pop_casual, Rels_casual,Rels_dur,Pop_desire]=split_casual_pair_list(Po
     % remove alters from the partner list for the two egos
     ind1=find(Pop_Id==id1); % find the location of id1 data in all arrays
     ind2=find(Pop_Id==id2); % find the location of id2 data in all arrays
-    id1alter=find(Pop_casual(:,ind1)==ind2);
-    id2alter=find(Pop_casual(:,ind2)==ind1);
+    id1alter=find(Pop_casual(:,ind1)==id2);
+    id2alter=find(Pop_casual(:,ind2)==id1);
     Pop_casual(id1alter,ind1)=0;
     Pop_casual(id2alter,ind2)=0;
     Pop_desire(2,ind1)=Pop_desire(2,ind1)-1;
