@@ -1,7 +1,0 @@
-function [Population_Age,Pop_desire]=Age(Pop_id,Population_Age,Pop_desire,CasualProp)
-% ageing all individuals who are alive by 1 day
-ind_arr=find(Population_Age>0); % find all individuals who are alive
-for ind=ind_arr
-    Population_Age(ind)=Population_Age(ind)+1;
-end
-end
