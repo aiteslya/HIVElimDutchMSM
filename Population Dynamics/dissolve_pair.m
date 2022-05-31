@@ -1,0 +1,2 @@
+function [People_casual, People_history,Population_desire,Rels,Rels_dur]=dissolve_pair(t,People_casual,People_history,Rels,Population_desire,Rels_dur,rels_counter)
+% this function dissolves the pair whose partic

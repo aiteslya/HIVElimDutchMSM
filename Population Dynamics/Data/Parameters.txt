@@ -1,0 +1,27 @@
+% This file contains parameter values for the simulation 
+
+N=100;% population size;
+lambda=2;%18; %average birth year per year, assuming Poisson distribution
+
+T=50; % simulation time in years
+
+%% network formation parameters
+% steady network formation parameters
+% dissolution rate of the relationship
+rho=1/5; % years
+rho_d=rho/year;
+%formation rate of a relationship, control parameter
+sigma=0.001; % years
+sigma_d=sigma/year;
+% adjustment in formation rate of a relationship 
+psi=0.00125; % second control parameters
+%maximal number of iterations to try to form a relationship
+N_Iter=1000;
+Max_parts=100;% maximum number of partners
+hist_dur=12*year;% duration over which we keep the sexual history of individuals
+
+%casual relationships
+%formation rate
+sigma2=0.01;% years
+sigma2_d=sigma2/year;
+rho2_d=1/2;% days
